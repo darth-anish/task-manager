@@ -1,0 +1,28 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="64x64" href="{% static 'task_manager/favicon/favicon.png' %}">
+
+    <link rel="stylesheet" href="{% static 'task_manager/bootstrap/css/bootstrap.min.css' %}">
+    <title>TM Admin</title>
+</head>
+<body>
+    <main role="main">
+        <div class="container">        
+            <div class="form-container login-form">
+                <form method="POST">
+                    <h1 class="my-3">Sign in</h1>
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ form }}
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-login">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
