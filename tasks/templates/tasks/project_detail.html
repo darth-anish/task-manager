@@ -1,0 +1,27 @@
+{% extends 'tasks/base.html' %}
+{% load static %}
+
+{% block header %}
+    Project detail
+{% endblock %}
+{% block content %}
+    <p><strong>Name:</strong> {{ project.name }}</p>
+
+    <!-- Display Project Description -->
+    <p><strong>Description:</strong> {{ project.description }}</p>
+
+    <!-- Display Project Status -->
+    <p><strong>Status:</strong> {{ project.status }}</p>
+
+    <!-- Display Project Members -->
+    <p><strong>Members:</strong> 
+    {% for member in project.members.all %}
+        {{ member.username }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+    </p>
+
+    <!-- Display Created By -->
+    <p><strong>Created By:</strong> {{ project.created_by.username }}</p>
+    <!-- Display Created on -->
+    <p><strong>Created On:</strong> {{ project.created_on|date:"F j, Y, g:i a" }}</p>
+{% endblock %}

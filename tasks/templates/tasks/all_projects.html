@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html'%}
+{% load static %}
+
+
+{% block header %}
+    Projects List
+{% endblock %}
+
+{% block content %}
+
+<ul>
+    {% for project in projects %}
+        <li>
+            <h5><a href="{% url 'tasks:project_detail' project.id %}">{{ project.name }}</a></h5>
+            <p>Status: {{ project.status }}</p>
+            <p>Status: {{ project.created_by }}</p>
+            <p>Members: {% for member in project.members.all %}{{ member.username }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+            <p>Status: {{ project.created_on }}</p>           
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -2,12 +2,10 @@
 
 <html lang="en">
     <link rel="stylesheet" href="{% static 'task_manager/bootstrap/css/bootstrap.min.css' %}">
-    <body class="d-flex justify-content-center align-items-center">
-        <header>
-            <h1>{% block header %}Welcome to task manager{% endblock %}</h1>
-        </header>
-        <main>
-            {% block content %} {% endblock %}
-        </main>
+    <header class="d-flex justify-content-center align-items-center">
+        <h1>{% block header %}Welcome to task manager{% endblock %}</h1>
+    </header>
+    <body>
+        {% block content %} {% endblock %}
     </body>
 </html>
